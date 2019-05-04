@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import MapGL, { Marker } from 'react-map-gl';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 
 import { Creators as ModalActions } from '../../store/ducks/modal';
 
@@ -60,7 +60,7 @@ class Map extends Component {
             latitude={developer.cordinates.latitude}
             longitude={developer.cordinates.longitude}
             key={developer.id}
-            sty
+            anchor="center"
           >
             <img
               alt={developer.name}
@@ -78,23 +78,10 @@ class Map extends Component {
   }
 }
 
-// Map.propTypes = {
-//   showModal: PropTypes.func.isRequired,
-//   developers: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.number,
-//       name: PropTypes.string,
-//       avatar: PropTypes.string,
-//       coordinates: PropTypes.oneOfType([
-//         PropTypes.oneOf([null]),
-//         PropTypes.shape({
-//           latitude: PropTypes.number,
-//           longitude: PropTypes.number,
-//         }),
-//       ]),
-//     }),
-//   ).isRequired,
-// };
+Map.propTypes = {
+  developers: PropTypes.shape({}).isRequired,
+  showModal: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = state => ({
   developers: state.developers,

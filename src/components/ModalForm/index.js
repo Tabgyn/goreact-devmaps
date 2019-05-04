@@ -39,6 +39,10 @@ class ModalForm extends Component {
     this.setState({ developerInput: '' });
   };
 
+  handleAfterOpen = () => {
+    document.getElementById('developerInput').focus();
+  };
+
   render() {
     const { modal, loading } = this.props;
     const { developerInput } = this.state;
@@ -46,12 +50,14 @@ class ModalForm extends Component {
       <Modal
         isOpen={modal.isVisible}
         onRequestClose={this.handleHideModal}
+        onAfterOpen={this.handleAfterOpen}
         className="Modal"
         overlayClassName="Overlay"
       >
         <Form onSubmit={this.handleFormSubmit}>
           <strong>Adicionar novo usuário</strong>
           <input
+            id="developerInput"
             placeholder="Usuário do Github"
             value={developerInput}
             onChange={e => this.setState({ developerInput: e.target.value })}

@@ -13,6 +13,7 @@ export const Container = styled.div`
 
 export const List = styled.ul`
   list-style: none;
+  padding: 0 15px;
 `;
 
 export const ListItem = styled.li`
@@ -20,7 +21,12 @@ export const ListItem = styled.li`
   flex: 1;
   align-items: center;
   justify-content: center;
-  padding: 15px;
+  border-bottom: 1px solid #eee;
+  padding: 15px 0;
+
+  &:last-child {
+    border: 0;
+  }
 `;
 
 export const Avatar = styled.img`

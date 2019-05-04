@@ -19,7 +19,7 @@ const SideBar = ({ developers, removeDeveloper }) => (
   <Container>
     <List>
       {developers.data.map(developer => (
-        <ListItem>
+        <ListItem key={developer.id}>
           <Avatar src={developer.avatar} alt={developer.name} />
           <UserInfo>
             <strong>{developer.name}</strong>
